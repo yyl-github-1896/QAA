@@ -4,6 +4,16 @@ This repository contains code to reproduce results from the paper:
 
 [Quantization Aware Attack: Enhancing the Transferability of Adversarial Attacks across Target Models with Different Quantization Bitwidths](https://arxiv.org/abs/2305.05875) (TIFS 2024)
 
+Quantized neural networks (QNNs) have received increasing attention in resource-constrained scenarios due to their exceptional generalizability. However, their robustness against realistic black-box adversarial attacks has not been extensively studied.
+In this scenario, adversarial transferability is pursued across QNNs with different quantization bitwidths, which particularly involve unknown architectures and defense methods. Previous studies claim that transferability is difficult to achieve across QNNs with different bitwidths on the condition that they share the same architecture.
+However, we discover that under different architectures, transferability can be largely improved by using a QNN quantized with an extremely low bitwidth as the substitute model. We further improve the attack transferability by proposing quantization aware attack (QAA), which fine-tunes a QNN substitute model with a multiple-bitwidth training objective.
+In particular, we demonstrate that QAA addresses the two issues that are commonly known to hinder transferability: 1) quantization shifts and 2) gradient misalignments.
+Extensive experimental results validate the high transferability of the QAA to diverse target models.
+For instance, when adopting the ResNet-34 substitute model on ImageNet, QAA outperforms the current best attack in attacking standardly trained DNNs, adversarially trained DNNs, and QNNs with varied bitwidths by 4.3\%~20.9\%, 8.7\%~15.5\%, and 2.6\%~31.1\% (absolute), respectively.
+In addition, QAA is efficient since it only takes one epoch for fine-tuning.
+In the end, we empirically explain the effectiveness of QAA from the view of the loss landscape. 
+
+![Quantization Aware Attack](qaa.pdf)
 
 ## Requirements
 
@@ -90,9 +100,13 @@ bash ./fp_benchmark.sh
 
 ## Acknowledgments
 Our code refers to:
+
 [VT](https://github.com/JHL-HUST/VT)
+
 [QDrop](https://github.com/wimh966/QDrop)
+
 [APoT_Quantization](https://github.com/yhhhli/APoT_Quantization)
+
 [PyTorch_CIFAR10](https://github.com/huyvnphan/PyTorch_CIFAR10)
 
 

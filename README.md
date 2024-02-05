@@ -13,7 +13,7 @@ For instance, when adopting the ResNet-34 substitute model on ImageNet, QAA outp
 In addition, QAA is efficient since it only takes one epoch for fine-tuning.
 In the end, we empirically explain the effectiveness of QAA from the view of the loss landscape. 
 
-![Quantization Aware Attack](qaa.pdf)
+![Quantization Aware Attack](qaa.png)
 
 ## Requirements
 

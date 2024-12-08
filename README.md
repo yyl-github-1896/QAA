@@ -68,7 +68,7 @@ python evaluate.py --arch inception_v3 --output_dir ./adv_imgs/apot/resnet34_w2a
 
 ### Prepare the data and models
 
-Please download the [pretrained models](https://drive.google.com/file/d/1Oj4-IrZMPDhY-tXmDfmdegBFJPbzplCr/view?usp=drive_link) and place them under ./ImageNet/, respectively. The CIFAR-10 dataset will be downloaded automatically when running the code. The directory structure should be like:
+Please download the [pretrained models](https://drive.google.com/file/d/1Oj4-IrZMPDhY-tXmDfmdegBFJPbzplCr/view?usp=drive_link) and place them under ./CIFARA-10/, respectively. The CIFAR-10 dataset will be downloaded automatically when running the code. The directory structure should be like:
 
 ```
 CIFAR-10

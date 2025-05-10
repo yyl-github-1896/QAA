@@ -55,12 +55,12 @@ python -m torch.distributed.launch --nproc_per_node=6 train.py --data /data/yyl/
 
 Generate adversarial examples with the QAA substitute model and the MI-FGSM attack:
 ```
-python attack.py --data_source /data/yyl/data/ImageNet/val_rs --arch resnet34 --attack admix --w_bit 2 --a_bit 2 --quantize_method apot --stochastic 1 --ckpt_id 120603 --device 0
+python attack.py --data_source /data/yyl/data/ImageNet/val_rs --arch resnet34 --attack mi_fgsm --w_bit 2 --a_bit 2 --quantize_method apot --stochastic 1 --ckpt_id 120603 --device 0
 ```
 
 Evaluate the attack success rates on Inception_v3 target model:
 ```
-python evaluate.py --arch inception_v3 --output_dir ./adv_imgs/apot/resnet34_w2a2_stochastic/admix --device 0
+python evaluate.py --arch inception_v3 --output_dir ./adv_imgs/apot/resnet34_w2a2_stochastic/mi_fgsm --device 0
 ```
 
 
@@ -98,17 +98,22 @@ Or you can run the following script to evaluate on multiple target models:
 bash ./fp_benchmark.sh
 ```
 
+### Evaluation on more target models
+Our ImageNet target models refer to:
++ Full-precision models: [TorchvisionModels] (https://docs.pytorch.org/vision/main/models.html)
++ Defense models: [VT](https://github.com/JHL-HUST/VT)
++ Quantized models: [APoT_Quantization](https://github.com/yhhhli/APoT_Quantization), [QDrop](https://github.com/wimh966/QDrop)
+
+Our CIFAR-10 target models refer to:
++ Full-precision models: [PyTorch_CIFAR10](https://github.com/huyvnphan/PyTorch_CIFAR10)
++ Quantized models: [Binary_Nets](https://github.com/mzemlyanikin/binary-nets), [XNOR_Nets_PyTorch](https://github.com/jiecaoyu/XNOR-Net-PyTorch), [APoT_Quantization](https://github.com/yhhhli/APoT_Quantization), [QDrop](https://github.com/wimh966/QDrop)
+
+
+
 ## Acknowledgments
 Our code refers to:
 
-[VT](https://github.com/JHL-HUST/VT)
-
-[QDrop](https://github.com/wimh966/QDrop)
-
-[APoT_Quantization](https://github.com/yhhhli/APoT_Quantization)
-
-[PyTorch_CIFAR10](https://github.com/huyvnphan/PyTorch_CIFAR10)
-
+[TransferAttackEval](https://github.com/ZhengyuZhao/TransferAttackEval)
 
 ## About us
 We are in XJTU-AISEC lab led by [Prof. Chao Shen](https://gr.xjtu.edu.cn/en/web/cshen/home), [Prof. Chenhao Lin](https://gr.xjtu.edu.cn/en/web/linchenhao), [Prof. Zhengyu Zhao](https://zhengyuzhao.github.io/), Prof. Qian Li, and etc. in the School of Cyber Science and Engineering, Xi'an Jiaotong University.

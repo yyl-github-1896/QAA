@@ -100,7 +100,7 @@ bash ./fp_benchmark.sh
 
 ### Evaluation on more target models
 Our ImageNet target models refer to:
-+ Full-precision models: [TorchvisionModels] (https://docs.pytorch.org/vision/main/models.html)
++ Full-precision models: [TorchvisionModels](https://docs.pytorch.org/vision/main/models.html)
 + Defense models: [VT](https://github.com/JHL-HUST/VT)
 + Quantized models: [APoT_Quantization](https://github.com/yhhhli/APoT_Quantization), [QDrop](https://github.com/wimh966/QDrop)
 
